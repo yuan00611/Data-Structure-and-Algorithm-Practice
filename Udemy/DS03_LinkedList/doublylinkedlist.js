@@ -1,49 +1,24 @@
-const basket = ['apples', 'grapes', 'pears'];
-
-/* Linked List
-apples
-8947 ---> grapes
-		   8743 --> pears
-					 372 --> null
-
-let idealLinkedList = {
-	head:{
-		value: 10,
-		next: {
-			value: 5,
-			next: {
-				value: 16,
-				next: null
-			}
-		}
-	}
-}
-
-*/
-
-
-/*//////////////////////
-build Linked List
-//////////////////////*/
-
 class Node{
 	constructor(value){
 		this.value =  value;
 		this.next = null;
+		this.prev = null;
 	}
 }
 
-class LinkedList {
+class DoublyLinkedList {
 	constructor(value){
 		this.head = {
 			value: value,
-			next: null
+			next: null,
+			prev: null
 		}
 		this.tail = this.head;
 		this.length = 1;
 	}
 	append(value){
 		const newNode = new Node(value);
+		newNode.prev = this.tail;
 		this.tail.next = newNode;
 		this.tail = newNode;
 		this.length++;
@@ -51,6 +26,7 @@ class LinkedList {
 	}
 	prepend(value){
 		const newNode = new Node(value);
+		this.head.prev = newNode;
 		newNode.next = this.head;
 		this.head = newNode;
 		this.length++;
@@ -90,7 +66,9 @@ class LinkedList {
 		let holdingPointer = leaderNode.next;
 
 		insertNode.next = holdingPointer;
+		insertNode.prev = leaderNode;
 		leaderNode.next = insertNode;
+		holdingPointer.prev = insertNode;
 		this.length++;
 		return this.printList();
 
@@ -107,43 +85,25 @@ class LinkedList {
 		let leaderNode = this.traverseToIndex(index-1);
 		let holdingPointer = leaderNode.next.next;
 		leaderNode.next = holdingPointer;
+		holdingPointer.prev = leaderNode;
 		this.length--;
-		return this.printList();
-	}
-	reverse(){
-		if (!this.head.next) {
-			return this.head;
-		}
-
-		let first = this.head;
-		this.tail = this.head;
-		let second = first.next;
-		
-		while (second) {
-			const temp = second.next;
-			second.next = first;
-			first = second;
-			second = temp;
-		}
-		this.head.next = null;
-		this.head = first;
 		return this.printList();
 	}
 
 }
 
-const myLinkedList = new LinkedList(10);
-// console.log(myLinkedList);
+const myLinkedList = new DoublyLinkedList(10);
+console.log(myLinkedList);
 myLinkedList.append(5);
-// console.log(myLinkedList);
+console.log(myLinkedList);
 myLinkedList.append(16);
-// console.log(myLinkedList);
+console.log(myLinkedList);
 myLinkedList.prepend(1);
-// console.log(myLinkedList);
-// console.log(myLinkedList.printList())
-myLinkedList.insert(2, 99);
-// console.log(myLinkedList.printList())
-// myLinkedList.remove(10);
+console.log(myLinkedList);
 console.log(myLinkedList.printList())
-myLinkedList.reverse();
+myLinkedList.insert(2, 99);
+console.log(myLinkedList);
+console.log(myLinkedList.printList())
+myLinkedList.remove(1);
+console.log(myLinkedList);
 console.log(myLinkedList.printList())
