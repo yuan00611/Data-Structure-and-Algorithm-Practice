@@ -1,0 +1,23 @@
+//If you know a solution is not far from the root of the tree:
+--> BFS
+Andrei-> BFS
+
+//If the tree is very deep and solutions are rare: 
+--> BFS
+Andrei-> BFS (DFS will take long time), but may have memory concern
+
+//If the tree is very wide:
+--> BFS(?)
+Andrei-> DFS (BFS will need to much memory)
+
+//If solutions are frequent but located deep in the tree:
+--> DFS
+Andrei-> DFS
+
+//Determining whether a path exists between two nodes:
+--> DFS
+Andrei-> DFS
+
+//Finding the shortest path:
+--> BFS(?)
+Andrei-> BFS
