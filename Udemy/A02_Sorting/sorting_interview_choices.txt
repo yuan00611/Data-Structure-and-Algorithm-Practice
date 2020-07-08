@@ -1,0 +1,30 @@
+//#1 - Sort 10 schools around your house by distance:
+--> Counting | Radix (number)
+Andrei -> Insertion (small data, easy algorithm)
+
+//#2 - eBay sorts listings by the current Bid amount:
+--> Merge (keep order)
+Andrei -> Counting | Radix (number, fix length)
+
+//#3 - Sport scores on ESPN
+--> Counting | Radix (number)
+Andrei -> Quick sort(different kind of sport, worry about space)
+
+//#4 - Massive database (can't fit all into memory) needs to sort through past year's user data
+--> Quick or Heap(space small)
+Andrei -> Merge (didn't need to use memory, but worry about the performance)
+
+//#5 - Almost sorted Udemy review data needs to update and add 2 new reviews
+-->Insertion(almost sorted)
+Andrei -> Insertion(almost sorted)
+
+//#6 - Temperature Records for the past 50 years in Canada
+--> Merge(keep order)
+Andrei -> Counting | Radix (number) / Quick(space small)
+
+//#7 - Large user name database needs to be sorted. Data is very random.
+--> Heap(space small / data random afraid of worst case)
+Andrei -> Quick (pick a great pivot to avoid worst case)
+
+//#8 - You want to teach sorting for the first time
+-->Bubble | Selection
