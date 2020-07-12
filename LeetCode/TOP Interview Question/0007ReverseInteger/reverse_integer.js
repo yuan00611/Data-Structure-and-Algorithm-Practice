@@ -29,13 +29,12 @@ console.log(reverse(123));
 console.log(reverse(-123));
 console.log(reverse(120));
 
-console.log(Math.log2(1534236469));
-console.log(Math.log2(1463847412));
-console.log(Math.log2(2147483651));
-console.log(Math.log2(8463847412));
-
 var reverse2 = function(x) {
   const absReversed = Math.abs(x).toString().split('').reverse().join('');
   if (absReversed > 2**31) return 0;
   return absReversed * Math.sign(x);
 };
+
+
+
+
