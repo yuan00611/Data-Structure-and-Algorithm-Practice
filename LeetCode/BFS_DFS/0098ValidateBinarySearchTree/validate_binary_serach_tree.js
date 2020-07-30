@@ -27,8 +27,20 @@ function TreeNode(val, left, right) {
 	this.right = (right===undefined ? null : right)
 }
 
-function isValidBST(root) {
-	
+var isValidBST = function(root) {
+	const check = (root, min, max) => {
+		if (!root) {
+			return true;
+		}
+		if (min !== null && root.val <= min.val) {
+			return false;
+		}
+		if (max !== null && root.val >= max.val) {
+			return false;
+		}
+		return check(root.left, min, root) && check(root.right, root, max);
+	}
+	return check(root, null, null);
 }
 
 
