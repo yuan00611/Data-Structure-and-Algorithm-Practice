@@ -17,15 +17,27 @@
 
 // Ans: 3
 
+function TreeNode(val, left, right) {
+    this.val = (val===undefined ? 0 : val)
+    this.left = (left===undefined ? null : left)
+    this.right = (right===undefined ? null : right)
+}
+
 function maxDepth(root) {
 	if (!root) {
-		return 0;
+		return 1;
 	} else {
 		let left = maxDepth(root.left);
 		let right = maxDepth(root.right);
 		return Math.max(left, right) + 1;
 	}
 }
+
+let t1_2 = new TreeNode(2);
+let t1_3 = new TreeNode(3);
+let t1_1 = new TreeNode(1, t1_2, t1_3);
+console.log(t1_1);
+
 
 
 
