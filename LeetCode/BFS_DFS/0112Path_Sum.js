@@ -24,8 +24,6 @@ function TreeNode(val, left, right) {
 
 // var hasPathSum = function(root, sum) {
 // 	if(!root) return false;
-// 	if(root.val === sum && (root.left || root.right)) return false;
-// 	if(root.val === sum) return true;
 // 	function dfs(node, t_sum){
 // 		if (!node) {
 // 			if (t_sum === sum) {
