@@ -19,19 +19,25 @@
 function search(nums, target) {
 	let left = 0;
 	let right = nums.length - 1;
-	let mid = Math.floor((left + right) / 2);
-	if(target < nums[left] && target > nums[right]) return -1;
-	if(target > nums[left]) right = mid;
-	if (target < nums[right]) { left = mid };
+
 	while (left <= right) {
-		if (nums[mid] === target) {
-			return mid;
-		} else if (target > mid) {
-			left = mid;
-		} else if (target < mid) {
-			right = mid;
+		let mid = Math.floor((left + right) / 2);
+		if (nums[mid] === target) return mid;
+		
+		//左邊有序
+		if(nums[mid] >= nums[left]){
+			if (target >= nums[left] && target <= nums[mid]) {
+				right = mid - 1;
+			} else {
+				left = mid + 1
+			}
+		} else { //右邊有序
+			if (target >= nums[mid] && target <= nums[right]) {
+				left = mid + 1;
+			} else {
+				right = mid - 1;
+			}
 		}
-		mid = Math.floor((left + right) / 2);
 	}
 	return -1;
 }

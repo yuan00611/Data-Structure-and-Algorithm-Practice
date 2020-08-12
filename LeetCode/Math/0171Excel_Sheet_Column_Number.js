@@ -30,9 +30,6 @@ function titleToNumber(s) {
 		let temp =  (s.charCodeAt(i) - 64) * digits;
 		ans += temp;
 		digits *= 26;
-		// console.log(temp);
-		// console.log(ans);
-		// console.log(digits);
 	}
 	return ans;
 }
