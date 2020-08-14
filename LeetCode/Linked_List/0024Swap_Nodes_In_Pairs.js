@@ -13,8 +13,7 @@ function ListNode(val, next) {
 function swapPairs(head) {
 	let newHead = new ListNode(0, head);
 	let temp = newHead;
-	while(temp.next !== null && temp.next.next !== null) {
-		console.log(temp);
+	while(temp.next && temp.next.next) {
 		let start = temp.next;
 		let end = temp.next.next;
 		temp.next = end;
